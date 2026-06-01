@@ -1,37 +1,51 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { authService } from '../services/authService';
 
-const NavPanel = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-    <div className="container">
-      <span className="navbar-brand">Hotel</span>
-      
-      <div className="navbar-nav me-auto">
-        <NavLink to="/" className={({ isActive }) =>'nav-link' + (isActive ? ' active fw-bold' : '')}>
-          Strona główna
-        </NavLink>
+function NavPanel() 
+{
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-        <NavLink to="/rooms" className={({ isActive }) => 'nav-link' + (isActive ? ' active fw-bold' : '')}>
-          Pokoje
-        </NavLink>
+  useEffect(() => {
+    const subscription = authService.currentUser.subscribe(loggedUser => {
+        setUser(loggedUser);
+    });
 
-        <NavLink to="/login" className={({ isActive }) => 'nav-link' + (isActive ? ' active fw-bold' : '')}>
-          Logowanie
-        </NavLink>
+    return () => subscription.unsubscribe;
+  }, []);
 
-        <NavLink to="/register" className={({ isActive }) => 'nav-link' + (isActive ? ' active fw-bold' : '')}>
-          Rejestracja
-        </NavLink>
-      </div>
+  const handleLogout = () => {
+    authService.logout();
+    navigate("/");
+  }
 
-      <div className="navbar-nav">
-        <NavLink to="/dashboard" className={({ isActive }) => 'nav-link text-warning' + (isActive ? ' active fw-bold' : '')}>
-          Panel Klienta
-        </NavLink>
-      </div>
-      
-    </div>
-  </nav>
-);
+  return (
+    <header style={{ background: '#2c3e50', padding: '15px 20px' }}>
+      <nav className="container d-flex justify-content-between align-items-center">
+        <div>
+          <Link to="/" className="text-white text-decoration-none fw-bold me-3">Hotel</Link>
+          <Link to="/rooms" className="text-white text-decoration-none me-3">Pokoje</Link>
+          {user && <Link to="/dashboard" className="text-white text-decoration-none">Panel Klienta</Link>}
+        </div>
+        
+        <div>
+          {user ? (
+            <div className="d-flex align-items-center gap-3">
+              <span className="text-white-50">Witaj, <strong>{user.username}</strong>!</span>
+              <button className="btn btn-outline-light btn-sm" onClick={handleLogout}>Wyloguj się</button>
+            </div>
+          ) : (
+            <>
+              <Link to="/login" className="btn btn-outline-light btn-sm me-2">Logowanie</Link>
+              <Link to="/register" className="btn btn-light btn-sm">Rejestracja</Link>
+            </>
+          )}
+        </div>
+      </nav>
+    </header>
+
+  );
+}
 
 export default NavPanel;

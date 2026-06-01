@@ -1,11 +1,23 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { fromEvent } from "rxjs";
 import { debounceTime, distinctUntilChanged, switchMap, map } from "rxjs/operators";
+import { authService } from "../services/authService";
 
 function RoomSearch()
 {
     const [rooms, setRooms] = useState([]);
     const searchInputRef = useRef(null);
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const subscription = authService.currentUser.subscribe(loggedUser => {
+            setUser(loggedUser);
+        });
+
+        return () => subscription.unsubscribe;
+    }, []);
 
     useEffect(() => {
         fetch("http://localhost:3001/rooms")
@@ -30,6 +42,35 @@ function RoomSearch()
         return () => subscription.unsubscribe();
     }, []);
 
+    const handleReservation = (room) => {
+        if (!user)
+        {
+            navigate("/login");
+        }
+
+        const reservationData = { userId: user.id, roomId: room.id, status: "active" };
+
+        fetch('http://localhost:3001/reservations',
+        {
+            method: "POST",
+            headers: { "Content-Type" : "application/json"},
+            body: JSON.stringify(reservationData)
+        })
+        .then(() => {
+            return fetch(`http://localhost:3001/rooms/${room.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type" : "application/json" },
+                body: JSON.stringify({ isAvailable: false })
+            });
+        })
+        .then(() => {
+            setTimeout(() => navigate('/dashboard'), 2000);
+        })
+        .catch(error => {
+            console.error("Błąd podczas rezerwacji:", error);
+        })
+    }
+
     return (
         <div className="container mt-5">
             <h2 className="mb-4">Dostępne Pokoje</h2>
@@ -48,7 +89,7 @@ function RoomSearch()
                                 </p>
 
                                 {room.isAvailable ? (
-                                    <button className="btn btn-primary w-100">Rezerwuj</button>
+                                    <button className="btn btn-primary w-100" onClick={() => handleReservation(room)}>Rezerwuj</button>
                                 ) : (
                                     <button className="btn btn-secondary w-100">Niedostepny</button>
                                 )}

@@ -1,11 +1,53 @@
 {
   "users": [
-    { "id": "1", "username": "student", "password": "123", "role": "client" }
+    {
+      "id": "1",
+      "username": "student",
+      "password": "123",
+      "role": "client"
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "role": "client",
+      "id": "4mCSGNd"
+    }
   ],
   "rooms": [
-    { "id": "1", "name": "Apartament Premium", "capacity": 2, "price": 250, "isAvailable": true },
-    { "id": "2", "name": "Pokój Standard", "capacity": 1, "price": 120, "isAvailable": true },
-    { "id": "3", "name": "Pokój Rodzinny", "capacity": 4, "price": 350, "isAvailable": true }
+    {
+      "id": "1",
+      "name": "Apartament Premium",
+      "capacity": 2,
+      "price": 250,
+      "isAvailable": false
+    },
+    {
+      "id": "2",
+      "name": "Pokój Standard",
+      "capacity": 1,
+      "price": 120,
+      "isAvailable": false
+    },
+    {
+      "id": "3",
+      "name": "Pokój Rodzinny",
+      "capacity": 4,
+      "price": 350,
+      "isAvailable": true
+    }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "userId": "4mCSGNd",
+      "roomId": "1",
+      "status": "active",
+      "id": 1
+    },
+    {
+      "userId": "4mCSGNd",
+      "roomId": "2",
+      "status": "active",
+      "id": 2
+    }
+  ]
 }
