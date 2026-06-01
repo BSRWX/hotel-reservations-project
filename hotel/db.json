@@ -1,0 +1,11 @@
+{
+  "users": [
+    { "id": "1", "username": "student", "password": "123", "role": "client" }
+  ],
+  "rooms": [
+    { "id": "1", "name": "Apartament Premium", "capacity": 2, "price": 250, "isAvailable": true },
+    { "id": "2", "name": "Pokój Standard", "capacity": 1, "price": 120, "isAvailable": true },
+    { "id": "3", "name": "Pokój Rodzinny", "capacity": 4, "price": 350, "isAvailable": true }
+  ],
+  "reservations": []
+}
