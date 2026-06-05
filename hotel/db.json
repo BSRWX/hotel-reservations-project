@@ -11,6 +11,12 @@
       "password": "test",
       "role": "client",
       "id": "4mCSGNd"
+    },
+    {
+      "username": "123",
+      "password": "123",
+      "role": "client",
+      "id": "G-z-ZY5"
     }
   ],
   "rooms": [
@@ -19,6 +25,7 @@
       "name": "Apartament Premium",
       "capacity": 2,
       "price": 250,
+      "standard": "premium",
       "isAvailable": false
     },
     {
@@ -26,13 +33,15 @@
       "name": "Pokój Standard",
       "capacity": 1,
       "price": 120,
-      "isAvailable": false
+      "standard": "standard",
+      "isAvailable": true
     },
     {
       "id": "3",
       "name": "Pokój Rodzinny",
       "capacity": 4,
       "price": 350,
+      "standard": "standard",
       "isAvailable": true
     }
   ],
@@ -40,14 +49,10 @@
     {
       "userId": "4mCSGNd",
       "roomId": "1",
+      "startDate": "2026-06-09",
+      "endDate": "2026-06-11",
       "status": "active",
       "id": 1
-    },
-    {
-      "userId": "4mCSGNd",
-      "roomId": "2",
-      "status": "active",
-      "id": 2
     }
   ]
 }
