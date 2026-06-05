@@ -43,17 +43,17 @@ function RoomSearch()
                 let url = 'http://localhost:3001/rooms?';
                 if (filters.name) 
                 {
-                    url += `name_like=${filters.name}`;
+                    url += `name_like=${filters.name}&`;
                 }
 
                 if (filters.capacity)
                 {
-                    url += `capacity_gte=${filters.capacity}`;
+                    url += `capacity_gte=${filters.capacity}&`;
                 }
 
                 if (filters.standard)
                 {
-                    url += `standard=${filters.standard}`;
+                    url += `standard=${filters.standard}&`;
                 }
 
                 return Promise.all([

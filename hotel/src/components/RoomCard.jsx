@@ -88,6 +88,7 @@ function RoomCard({room})
                 <h5 className="card-title">{room.name}</h5>
                 <p className="card-text">
                     <strong>Ilość osób:</strong> {room.capacity} <br />
+                    <strong>Standard:</strong> {room.standard}<br />
                     <strong>Cena:</strong> {room.price} PLN / noc
                 </p>
                 

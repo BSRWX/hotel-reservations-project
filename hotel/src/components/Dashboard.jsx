@@ -57,11 +57,11 @@ return (
             <table className="table table-hover align-middle">
                 <thead className="table-light">
                     <tr>
-                    <th>#ID</th>
-                    <th>Nazwa pokoju</th>
-                    <th>Status</th>
-                    <th>Cena za noc</th>
-                    <th></th>
+                        <th>#ID</th>
+                        <th>Nazwa pokoju</th>
+                        <th>Status</th>
+                        <th>Cena za noc</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

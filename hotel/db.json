@@ -17,6 +17,12 @@
       "password": "123",
       "role": "client",
       "id": "G-z-ZY5"
+    },
+    {
+      "username": "test2",
+      "password": "test2",
+      "role": "client",
+      "id": "4ZXSNjk"
     }
   ],
   "rooms": [
