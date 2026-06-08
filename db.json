@@ -23,6 +23,12 @@
       "password": "test2",
       "role": "client",
       "id": "4ZXSNjk"
+    },
+    {
+      "username": "test3",
+      "password": "test3",
+      "role": "client",
+      "id": "qplJ0lw"
     }
   ],
   "rooms": [
@@ -51,5 +57,14 @@
       "isAvailable": true
     }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "userId": "4mCSGNd",
+      "roomId": "3",
+      "startDate": "2026-06-10",
+      "endDate": "2026-06-12",
+      "status": "active",
+      "id": 1
+    }
+  ]
 }
