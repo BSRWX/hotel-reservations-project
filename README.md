@@ -1,42 +1,16 @@
-# 🏨 System Rezerwacji Hotelowej - Projekt Reaktywny (RxJS)
+# React + Vite
 
-Projekt zaliczeniowy z przedmiotu **Programowanie Reaktywne**. Jest to aplikacja webowa typu Single Page Application (SPA), która umożliwia przeglądanie, filtrowanie i rezerwację pokoi hotelowych w czasie rzeczywistym. 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Głównym celem projektu było praktyczne wykorzystanie biblioteki **RxJS** do zarządzania złożonym stanem asynchronicznym oraz zapobiegania problemom z wielokrotnymi zapytaniami sieciowymi (Race Conditions).
+Currently, two official plugins are available:
 
-## ✨ Główne funkcjonalności
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-* **Reaktywna wyszukiwarka (RxJS):** Filtrowanie pokoi po nazwie, pojemności, standardzie i datach. Wykorzystuje `BehaviorSubject`, `debounceTime` oraz `switchMap` do optymalizacji zapytań do API.
-* **Walidacja terminów (Anti-Overbooking):** System dynamicznie weryfikuje dostępność pokoi – pokoje zarezerwowane w wybranym przedziale czasowym znikają z wyników wyszukiwania.
-* **Autoryzacja użytkownika:** Symulowany system logowania i rejestracji. Globalny stan sesji jest zarządzany przez `BehaviorSubject`, co pozwala komponentom natychmiastowo reagować na zmiany.
-* **Panel Klienta:** Chroniony widok (dostępny tylko po zalogowaniu), w którym użytkownik może przeglądać i anulować swoje aktywne rezerwacje.
+## React Compiler
 
-## 🛠️ Technologie
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-* **Frontend:** React, React Router, HTML5, CSS3, Bootstrap 5
-* **Programowanie Reaktywne:** RxJS
-* **Backend (Mock):** JSON Server (REST API)
+## Expanding the ESLint configuration
 
----
-
-## 🚀 Instrukcja uruchomienia lokalnie
-
-Aby uruchomić projekt na swoim komputerze, wykonaj poniższe kroki. Wymagane jest posiadanie zainstalowanego środowiska Node.js.
-
-### 1. Pobranie i instalacja zależności
-Sklonuj to repozytorium, przejdź do folderu z projektem i zainstaluj wymagane paczki:
-```bash
-npm install
-```
-
-### 2. Uruchomienie bazy danych (API)
-Aplikacja wymaga serwera mockującego bazę danych. Otwórz terminal i uruchom przygotowany skrypt:
-```bash
-npm run server
-```
-
-### 3. Uruchomienie bazy danych (API)
-Otwórz nową kartę w terminalu (nie wyłączając serwera z bazą danych!) i uruchom aplikację:
-```bash
-npm run dev
-```
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
