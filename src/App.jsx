@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import RoomSearch from './components/RoomSearch'
 import Home from "./components/Home";
 import Login from "./components/Login";
