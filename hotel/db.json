@@ -51,14 +51,5 @@
       "isAvailable": true
     }
   ],
-  "reservations": [
-    {
-      "userId": "4mCSGNd",
-      "roomId": "1",
-      "startDate": "2026-06-09",
-      "endDate": "2026-06-11",
-      "status": "active",
-      "id": 1
-    }
-  ]
+  "reservations": []
 }
