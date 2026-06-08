@@ -34,6 +34,7 @@ Aplikacja wymaga serwera mockującego bazę danych. Otwórz terminal i uruchom p
 ```bash
 npm run server
 ```
+lub wejdz na https://my-json-server.typicode.com/bsrwx/hotel-reservations-project
 
 ### 3. Uruchomienie bazy danych (API)
 Otwórz nową kartę w terminalu (nie wyłączając serwera z bazą danych!) i uruchom aplikację:
