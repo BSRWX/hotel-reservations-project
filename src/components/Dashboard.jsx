@@ -20,7 +20,7 @@ function Dashboard()
     }, [user, navigate]);
 
     const fetchReservations = () => {
-        fetch(`http://localhost:3001/reservations?userId=${user.id}&_expand=room`)
+        fetch(`https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/reservations?userId=${user.id}&_expand=room`)
             .then(res => res.json())
             .then(data => setReservations(data));
     };
@@ -31,7 +31,7 @@ function Dashboard()
             return;
         }
 
-        fetch(`http://localhost:3001/reservations/${reservationId}`, {
+        fetch(`https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/reservations/${reservationId}`, {
             method: 'DELETE'
         })
         .then(() => {

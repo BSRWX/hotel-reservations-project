@@ -19,7 +19,7 @@ function Login()
             return;
         }
 
-        fetch(`http://localhost:3001/users?username=${username}&password=${password}`)
+        fetch(`https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/users?username=${username}&password=${password}`)
             .then(res => res.json())
             .then(users => {
                 if (users.length === 0)

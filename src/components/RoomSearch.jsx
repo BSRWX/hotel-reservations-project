@@ -40,7 +40,7 @@ function RoomSearch()
         const subscription = filter$.pipe(
             debounceTime(500),
             switchMap(filters => {
-                let url = 'http://localhost:3001/rooms?';
+                let url = 'https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/rooms?';
                 if (filters.name) 
                 {
                     url += `name_like=${filters.name}&`;
@@ -58,7 +58,7 @@ function RoomSearch()
 
                 return Promise.all([
                     fetch(url).then(res => res.json()),
-                    fetch("http://localhost:3001/reservations")
+                    fetch("https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/reservations")
                         .then(res => res.json())
                 ]).then(([fetchedRooms, allReservations]) => {
                     if (!filters.startDate || !filters.endDate)
@@ -99,14 +99,14 @@ function RoomSearch()
 
         const reservationData = { userId: user.id, roomId: room.id, status: "active" };
 
-        fetch('http://localhost:3001/reservations',
+        fetch('https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/reservations',
         {
             method: "POST",
             headers: { "Content-Type" : "application/json"},
             body: JSON.stringify(reservationData)
         })
         .then(() => {
-            return fetch(`http://localhost:3001/rooms/${room.id}`, {
+            return fetch(`https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/rooms/${room.id}`, {
                 method: "PATCH",
                 headers: { "Content-Type" : "application/json" },
                 body: JSON.stringify({ isAvailable: false })

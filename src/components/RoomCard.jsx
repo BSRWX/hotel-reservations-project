@@ -40,7 +40,7 @@ function RoomCard({room})
 
         try
         {
-            const res = await fetch(`http://localhost:3001/reservations?roomId=${room.id}`);
+            const res = await fetch(`https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/reservations?roomId=${room.id}`);
             const existingReservations = await res.json();
 
             const isOverlapping = existingReservations.some(reservation => {
@@ -64,7 +64,7 @@ function RoomCard({room})
                 status: "active"
             };
 
-            await fetch(`http://localhost:3001/reservations`, {
+            await fetch(`https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/reservations`, {
                 method: "POST",
                 headers: { "Content-Type" : "application/json"},
                 body: JSON.stringify(reservationDate)

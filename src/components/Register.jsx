@@ -27,7 +27,7 @@ function Register()
             return;
         }
 
-        fetch(`http://localhost:3001/users?username=${username}`)
+        fetch(`https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/users?username=${username}`)
             .then(res => res.json())
             .then(existingUsers => {
                 if (existingUsers.length > 0)
@@ -38,7 +38,7 @@ function Register()
 
                 const newUser = { username, password, role: 'client'};
 
-                fetch('http://localhost:3001/users',
+                fetch('https://my-json-server.typicode.com/bsrwx/hotel-reservations-project/users',
                 {
                     method: "POST",
                     headers: { "Content-Type" : "application/json"},
