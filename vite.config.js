@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/hotel-reservations-project/hotel/',
+  base: '/hotel-reservations-project/',
   plugins: [react()],
 })
