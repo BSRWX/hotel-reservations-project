@@ -126,7 +126,6 @@ function RoomSearch()
 
             <div className="card p-3 mb-4 shadow-sm bg-light">
     <div className="row g-3">
-        {/* Wyszukiwanie po nazwie */}
         <div className="col-md-3">
             <label className="form-label text-muted small mb-1">Nazwa</label>
             <input type="text" className="form-control form-control-sm" 
@@ -134,7 +133,6 @@ function RoomSearch()
                 onChange={(e) => handleFilterChange('name', e.target.value)} />
         </div>
         
-        {/* Wyszukiwanie po pojemności */}
         <div className="col-md-2">
             <label className="form-label text-muted small mb-1">Min. osób</label>
             <input type="number" min="1" className="form-control form-control-sm" 
@@ -142,7 +140,6 @@ function RoomSearch()
                 onChange={(e) => handleFilterChange('capacity', e.target.value)} />
         </div>
 
-        {/* Wyszukiwanie po standardzie (Select) */}
         <div className="col-md-3">
             <label className="form-label text-muted small mb-1">Standard</label>
             <select className="form-select form-select-sm" 
@@ -154,7 +151,6 @@ function RoomSearch()
             </select>
         </div>
 
-        {/* Wyszukiwanie po datach */}
         <div className="col-md-2">
             <label className="form-label text-muted small mb-1">Przyjazd</label>
             <input type="date" className="form-control form-control-sm" 
